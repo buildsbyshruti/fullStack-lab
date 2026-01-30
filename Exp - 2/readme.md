@@ -18,6 +18,12 @@ Dynamic card grid system with responsive design
 
 ![Experiment 2.2](./2.2/image.png)
 
+### 2.3 - UI Design Using Material UI Components
+
+Material UI components showcase with dark mode support
+
+![Experiment 2.3](./2.3/image.png)
+
 ### 2.4 - Responsive Navigation Bar Using Component Library
 
 Collapsible navigation with dropdown menus
