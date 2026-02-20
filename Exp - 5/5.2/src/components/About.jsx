@@ -12,30 +12,38 @@ const About = () => {
             </p>
             <div className="text-center w-100">
               <div className="p-3 bg-white rounded-3 shadow-sm mb-3">
-                <span className="text-muted d-block small text-uppercase fw-bold ls-tight mb-1">Section</span>
+                <span className="text-muted d-block small text-uppercase fw-bold ls-tight mb-1">
+                  Section
+                </span>
                 <span className="h5 text-dark fw-bold mb-0">23AML-3A</span>
               </div>
               <div className="p-3 bg-white rounded-3 shadow-sm mb-3">
-                <span className="text-muted d-block small text-uppercase fw-bold ls-tight mb-1">Course</span>
+                <span className="text-muted d-block small text-uppercase fw-bold ls-tight mb-1">
+                  Course
+                </span>
                 <span className="h5 text-dark fw-bold mb-0">Full Stack-2</span>
               </div>
             </div>
           </div>
         </div>
         <div className="col-md-7 ps-md-5">
-          <h3 className="h2 fw-bold text-dark mb-4">Innovation driven by Performance</h3>
+          <h3 className="h2 fw-bold text-dark mb-4">
+            Innovation driven by Performance
+          </h3>
           <p className="lead text-secondary mb-4">
             Hi, I'm Shruti. I specialize in building performance-optimized web
             architectures that focus on smooth user experiences.
           </p>
           <p className="text-muted mb-4">
-            In Experiment 5.2, I am implementing <strong>Route-Based Lazy Loading</strong>, 
-            which ensures that user-specific components are loaded only when 
-            needed, significantly reducing the initial page load time.
+            In Experiment 5.2, I am implementing{" "}
+            <strong>Route-Based Lazy Loading</strong>, which ensures that
+            user-specific components are loaded only when needed, significantly
+            reducing the initial page load time.
           </p>
           <blockquote className="blockquote border-start border-4 border-info ps-4 py-2 bg-light rounded-2 shadow-sm">
             <p className="mb-0 fs-6 italic text-dark fw-medium">
-              "Efficiency is doing things right; effectiveness is doing the right things."
+              "Efficiency is doing things right; effectiveness is doing the
+              right things."
             </p>
           </blockquote>
         </div>

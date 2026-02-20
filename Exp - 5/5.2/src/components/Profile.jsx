@@ -8,7 +8,7 @@ const Profile = () => {
           <div className="p-5 bg-success bg-opacity-10 rounded-circle shadow-sm border border-success border-opacity-25 d-inline-block position-relative mb-4">
             <h1 className="display-1 fw-bold text-success mb-0">S</h1>
             <div className="position-absolute bottom-0 end-0 p-2 bg-success rounded-circle shadow-sm">
-                <div className="p-1 bg-white rounded-circle"></div>
+              <div className="p-1 bg-white rounded-circle"></div>
             </div>
           </div>
           <h2 className="display-6 fw-bold text-dark mb-1">Shruti</h2>
@@ -19,11 +19,15 @@ const Profile = () => {
         <div className="col-md-8 ps-md-5 border-start border-light ps-4">
           <h3 className="h3 fw-bold text-dark mb-4 mt-2">Personal Identity</h3>
           <div className="mb-4">
-            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">Section</h4>
+            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">
+              Section
+            </h4>
             <p className="h5 text-dark fw-bold mb-3">23AML-3A</p>
           </div>
           <div className="mb-4">
-            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">Skillset</h4>
+            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">
+              Skillset
+            </h4>
             <div className="d-flex flex-wrap gap-2 mt-2">
               <span className="badge bg-success bg-opacity-75 text-white fs-7 px-3 py-1 rounded-pill shadow-sm">
                 React
@@ -37,9 +41,11 @@ const Profile = () => {
             </div>
           </div>
           <div className="mb-4">
-            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">Mission</h4>
+            <h4 className="h6 text-muted mb-2 text-uppercase fw-bold ls-tight">
+              Mission
+            </h4>
             <p className="lead text-secondary mb-4 italic fs-6">
-              Empowering users with blazingly fast web applications through 
+              Empowering users with blazingly fast web applications through
               smart architectural choices like Lazy Loading and Suspense.
             </p>
           </div>
