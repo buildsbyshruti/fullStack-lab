@@ -13,7 +13,7 @@ const LoadingFallback = () => (
     <Spinner animation="border" role="status" variant="primary">
       <span className="visually-hidden">Loading...</span>
     </Spinner>
-    <span className="ms-3 text-muted">Loading component...</span>
+    <span className="ms-3 text-muted">Loading...</span>
   </div>
 );
 

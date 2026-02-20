@@ -3,15 +3,26 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Nav, Navbar, Spinner } from "react-bootstrap";
 
-// Route-Based Lazy Loading
-const Home = lazy(() => import("./src/components/Home.jsx"));
-const Dashboard = lazy(() => import("./src/components/Dashboard.jsx"));
-const Profile = lazy(() => import("./src/components/Profile.jsx"));
+const delayImport = (importFunc) =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(importFunc()), 1000);
+  });
+
+const Home = lazy(() => delayImport(() => import("./src/components/Home.jsx")));
+const Dashboard = lazy(() =>
+  delayImport(() => import("./src/components/Dashboard.jsx")),
+);
+const Profile = lazy(() =>
+  delayImport(() => import("./src/components/Profile.jsx")),
+);
+const About = lazy(() =>
+  delayImport(() => import("./src/components/About.jsx")),
+);
 
 const LoadingFallback = () => (
   <div className="d-flex flex-column justify-content-center align-items-center p-5">
     <Spinner animation="grow" role="status" variant="secondary" />
-    <span className="mt-2 text-muted fw-bold">Downloading chunk...</span>
+    <span className="mt-2 text-muted fw-bold">Loading...</span>
   </div>
 );
 
@@ -43,6 +54,13 @@ const App = () => {
               >
                 Profile
               </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/about"
+                className="text-white hover-underline"
+              >
+                About
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -61,6 +79,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </Suspense>
 

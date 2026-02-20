@@ -16,4 +16,6 @@ Implementing lazy loading for multiple components to optimize bundle size.
 
 Implementing route-based lazy loading to ensure route-specific components are loaded only when navigated to.
 
-![Experiment 5.2](./5.2/image.png)
+![Experiment 5.2 - 1](./5.2/image.png)
+![Experiment 5.2 - 2](./5.2/image2.png)
+![Experiment 5.2 - 3](./5.2/image3.png)
