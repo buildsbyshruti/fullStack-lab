@@ -3,16 +3,6 @@ import React from "react";
 const Home = () => {
   return (
     <div className="p-5 text-dark bg-white rounded-4 shadow-lg border-0 overflow-hidden position-relative animate-fade-in">
-      {/* Background Watermark moved to bottom right behind content */}
-      <div
-        className="position-absolute bottom-0 end-0 p-0 opacity-10 d-none d-md-block"
-        style={{ zIndex: 0, marginRight: "-20px", marginBottom: "-30px" }}
-      >
-        <h1 className="display-1 fw-bold" style={{ fontSize: "12rem" }}>
-          2026
-        </h1>
-      </div>
-
       <div
         className="row align-items-center position-relative"
         style={{ zIndex: 1 }}
