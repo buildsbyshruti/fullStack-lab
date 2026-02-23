@@ -1,20 +1,29 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 
+const createInitialForm = () => ({
+  fullName: "",
+  email: "",
+  role: "",
+  experience: "0-1 years",
+  topics: {
+    hooks: true,
+    routing: false,
+    testing: false,
+  },
+  goals: "",
+});
+
+const describeTopics = (topics) =>
+  Object.entries(topics)
+    .filter(([, checked]) => checked)
+    .map(([key]) => key)
+    .join(", ") || "None yet";
+
 function App() {
   const [focusField, setFocusField] = useState("");
-  const [form, setForm] = useState({
-    fullName: "",
-    email: "",
-    role: "",
-    experience: "0-1 years",
-    topics: {
-      hooks: true,
-      routing: false,
-      testing: false,
-    },
-    goals: "",
-  });
+  const [form, setForm] = useState(createInitialForm);
+  const [entries, setEntries] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -24,14 +33,7 @@ function App() {
     return Math.round((filled / required.length) * 100);
   }, [form.fullName, form.email, form.role]);
 
-  const selections = useMemo(
-    () =>
-      Object.entries(form.topics)
-        .filter(([, checked]) => checked)
-        .map(([key]) => key)
-        .join(", ") || "None yet",
-    [form.topics],
-  );
+  const selections = useMemo(() => describeTopics(form.topics), [form.topics]);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
@@ -51,15 +53,24 @@ function App() {
     setIsSubmitting(true);
     setMessage("");
 
+    const entry = {
+      ...form,
+      id: `${Date.now().toString(36)}-${Math.random()
+        .toString(36)
+        .slice(2, 8)}`,
+    };
+
     setTimeout(() => {
+      setEntries((prev) => [entry, ...prev]);
       setIsSubmitting(false);
       setMessage("Thanks! We saved your preferences.");
+      setForm(createInitialForm());
     }, 700);
   };
 
   const getInteractiveInputStyle = (name) => ({
     background: "#ffffff",
-    border: focusField === name ? "1px solid #0ea5e9" : "1px solid #d5deeb",
+    border: focusField === name ? "1px solid #2563eb" : "1px solid #d5deeb",
     borderRadius: "12px",
     color: "#0f172a",
     fontSize: "15px",
@@ -67,7 +78,7 @@ function App() {
     outline: "none",
     boxShadow:
       focusField === name
-        ? "0 0 0 3px rgba(14,165,233,0.18), 0 6px 18px rgba(15,23,42,0.08)"
+        ? "0 0 0 3px rgba(37,99,235,0.18), 0 8px 18px rgba(15,23,42,0.08)"
         : "0 1px 2px rgba(15, 23, 42, 0.04)",
     transform: focusField === name ? "translateY(-1px)" : "none",
     transition:
@@ -80,24 +91,25 @@ function App() {
         minHeight: "100vh",
         width: "100%",
         background:
-          "radial-gradient(90% 80% at 12% 18%, rgba(56, 189, 248, 0.25), transparent 52%), radial-gradient(70% 70% at 86% 14%, rgba(94, 234, 212, 0.24), transparent 50%), linear-gradient(180deg, #f7fafc 0%, #f1f5f9 100%)",
+          "radial-gradient(120% 120% at 18% 18%, rgba(99,102,241,0.12), transparent 52%), radial-gradient(120% 120% at 86% 12%, rgba(14,165,233,0.12), transparent 54%), linear-gradient(180deg, #f9fafb 0%, #eef2f8 58%, #e6eaf3 100%)",
         display: "grid",
         placeItems: "center",
-        padding: "54px 20px",
+        padding: "60px 22px",
         fontFamily: "'Poppins', 'Manrope', 'Segoe UI', sans-serif",
         color: "#0f172a",
       }}
     >
       <div
         style={{
-          background: "#ffffff",
-          border: "1px solid #e2e8f0",
-          borderRadius: "18px",
-          boxShadow: "0 26px 80px rgba(15, 23, 42, 0.12)",
+          background:
+            "linear-gradient(150deg, #ffffff 0%, #f7f9fe 48%, #edf2fa 100%)",
+          border: "1px solid #d6deef",
+          borderRadius: "20px",
+          boxShadow: "0 24px 70px rgba(15, 23, 42, 0.1)",
           color: "#0f172a",
           display: "grid",
           gap: "24px",
-          padding: "36px",
+          padding: "38px",
           width: "min(960px, 94vw)",
           position: "relative",
           overflow: "hidden",
@@ -107,11 +119,11 @@ function App() {
           style={{
             position: "absolute",
             inset: "-40% auto auto -20%",
-            width: "320px",
-            height: "320px",
+            width: "300px",
+            height: "300px",
             background:
-              "radial-gradient(closest-side, rgba(34,211,238,0.16), transparent)",
-            filter: "blur(6px)",
+              "radial-gradient(closest-side, rgba(99,102,241,0.2), transparent)",
+            filter: "blur(12px)",
             pointerEvents: "none",
           }}
         />
@@ -119,11 +131,11 @@ function App() {
           style={{
             position: "absolute",
             inset: "auto -30% -40% auto",
-            width: "360px",
-            height: "360px",
+            width: "320px",
+            height: "320px",
             background:
-              "radial-gradient(closest-side, rgba(59,130,246,0.14), transparent)",
-            filter: "blur(10px)",
+              "radial-gradient(closest-side, rgba(14,165,233,0.14), transparent)",
+            filter: "blur(12px)",
             pointerEvents: "none",
           }}
         />
@@ -140,14 +152,14 @@ function App() {
             style={{
               width: "48px",
               height: "48px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, #3b82f6, #22d3ee)",
+              borderRadius: "14px",
+              background: "linear-gradient(135deg, #4f46e5, #22d3ee)",
               display: "grid",
               placeItems: "center",
               fontWeight: 700,
               letterSpacing: "0.8px",
               color: "#0b1224",
-              boxShadow: "0 12px 32px rgba(34, 211, 238, 0.3)",
+              boxShadow: "0 14px 34px rgba(79, 70, 229, 0.32)",
             }}
           >
             F6
@@ -180,10 +192,10 @@ function App() {
             style={{
               marginLeft: "auto",
               padding: "10px 14px",
-              background: "linear-gradient(135deg, #e0f2fe, #cffafe)",
-              borderRadius: "12px",
-              border: "1px solid #bfdbfe",
-              boxShadow: "0 6px 18px rgba(59,130,246,0.18)",
+              background: "linear-gradient(135deg, #e8f2ff, #e6f7ff)",
+              borderRadius: "14px",
+              border: "1px solid #c7d7f6",
+              boxShadow: "0 8px 22px rgba(79, 70, 229, 0.2)",
               display: "grid",
               gap: "4px",
               minWidth: "160px",
@@ -214,7 +226,7 @@ function App() {
                 style={{
                   width: `${completion}%`,
                   height: "100%",
-                  background: "linear-gradient(135deg, #0ea5e9, #22d3ee)",
+                  background: "linear-gradient(135deg, #4f46e5, #22d3ee)",
                   transition: "width 220ms ease",
                 }}
               />
@@ -434,7 +446,7 @@ function App() {
               type="submit"
               disabled={isSubmitting}
               style={{
-                background: "linear-gradient(135deg, #0ea5e9, #22d3ee)",
+                background: "linear-gradient(135deg, #4f46e5, #22d3ee)",
                 border: "none",
                 borderRadius: "12px",
                 color: "#0b1224",
@@ -443,18 +455,18 @@ function App() {
                 letterSpacing: "0.3px",
                 padding: "12px 20px",
                 minWidth: "160px",
-                boxShadow: "0 12px 30px rgba(14,165,233,0.28)",
+                boxShadow: "0 14px 34px rgba(79, 70, 229, 0.24)",
                 opacity: isSubmitting ? 0.7 : 1,
                 transition: "transform 160ms ease, box-shadow 160ms ease",
                 transform: isSubmitting ? "translateY(1px)" : "translateY(0)",
               }}
               onMouseEnter={(event) => {
                 event.currentTarget.style.boxShadow =
-                  "0 14px 34px rgba(14,165,233,0.32)";
+                  "0 16px 38px rgba(79, 70, 229, 0.28)";
               }}
               onMouseLeave={(event) => {
                 event.currentTarget.style.boxShadow =
-                  "0 12px 30px rgba(14,165,233,0.28)";
+                  "0 12px 30px rgba(79, 70, 229, 0.22)";
               }}
             >
               {isSubmitting ? "Saving..." : "Save preferences"}
@@ -492,7 +504,7 @@ function App() {
           <div
             style={{
               background: "#ffffff",
-              border: "1px solid #d5deeb",
+              border: "1px solid #d6deef",
               borderRadius: "12px",
               padding: "14px 16px",
               display: "grid",
@@ -520,6 +532,121 @@ function App() {
               <strong>Goals:</strong> {form.goals || "—"}
             </div>
           </div>
+        </section>
+
+        <section
+          style={{
+            borderTop: "1px solid #e2e8f0",
+            paddingTop: "16px",
+            display: "grid",
+            gap: "14px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <h2 style={{ margin: 0, fontSize: "18px" }}>Saved members</h2>
+              <span
+                style={{
+                  padding: "6px 10px",
+                  background: "linear-gradient(135deg, #e0f2fe, #cffafe)",
+                  borderRadius: "10px",
+                  border: "1px solid #bfdbfe",
+                  fontWeight: 700,
+                  fontSize: "13px",
+                  color: "#0b1224",
+                }}
+              >
+                {entries.length} saved
+              </span>
+            </div>
+            <div style={{ fontSize: "13px", opacity: 0.72 }}>
+              Add each teammate with the form above; all entries stay listed.
+            </div>
+          </div>
+
+          {entries.length === 0 ? (
+            <div
+              style={{
+                background: "#ffffff",
+                border: "1px dashed #cbd5e1",
+                borderRadius: "12px",
+                padding: "14px 16px",
+                color: "#475569",
+                fontSize: "14px",
+              }}
+            >
+              No saved members yet. Submit the form to add the first one.
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "grid",
+                gap: "12px",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              }}
+            >
+              {entries.map((entry) => (
+                <div
+                  key={entry.id}
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #d6deef",
+                    borderRadius: "14px",
+                    padding: "14px 16px",
+                    boxShadow: "0 12px 32px rgba(15,23,42,0.06)",
+                    display: "grid",
+                    gap: "6px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <div style={{ fontWeight: 700 }}>
+                      {entry.fullName || "Unnamed"}
+                    </div>
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        color: "#0f172a",
+                        background: "#e7edff",
+                        border: "1px solid #c7d7f6",
+                        padding: "4px 8px",
+                        borderRadius: "999px",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {entry.role || "Role TBD"}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#0f172a" }}>
+                    <strong>Email:</strong> {entry.email || "—"}
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#0f172a" }}>
+                    <strong>Experience:</strong> {entry.experience}
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#0f172a" }}>
+                    <strong>Topics:</strong> {describeTopics(entry.topics)}
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#0f172a" }}>
+                    <strong>Goals:</strong> {entry.goals || "—"}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </div>
