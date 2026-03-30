@@ -54,5 +54,5 @@ function Counter() {
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Counter />
-  </StrictMode>
+  </StrictMode>,
 );

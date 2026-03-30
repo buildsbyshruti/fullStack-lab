@@ -4,6 +4,7 @@ import "./App.css";
 const createInitialForm = () => ({
   fullName: "",
   email: "",
+  dob: "",
   role: "",
   experience: "0-1 years",
   topics: {
@@ -291,6 +292,28 @@ function App() {
                 required
               />
             </label>
+
+            <label
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                fontWeight: 600,
+                letterSpacing: "0.2px",
+                color: "#0f172a",
+              }}
+            >
+              Date of birth
+              <input
+                name="dob"
+                type="date"
+                value={form.dob}
+                onChange={handleInput}
+                style={getInteractiveInputStyle("dob")}
+                onFocus={() => setFocusField("dob")}
+                onBlur={() => setFocusField("")}
+              />
+            </label>
           </div>
 
           <div
@@ -520,6 +543,9 @@ function App() {
               <strong>Email:</strong> {form.email || "—"}
             </div>
             <div>
+              <strong>Date of birth:</strong> {form.dob || "—"}
+            </div>
+            <div>
               <strong>Role:</strong> {form.role || "—"}
             </div>
             <div>
@@ -633,6 +659,9 @@ function App() {
                   </div>
                   <div style={{ fontSize: "14px", color: "#0f172a" }}>
                     <strong>Email:</strong> {entry.email || "—"}
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#0f172a" }}>
+                    <strong>Date of birth:</strong> {entry.dob || "—"}
                   </div>
                   <div style={{ fontSize: "14px", color: "#0f172a" }}>
                     <strong>Experience:</strong> {entry.experience}
