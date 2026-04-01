@@ -1,29 +1,33 @@
 # Experiment 8: Building a RESTful API with Spring Boot
 
 ## Objective
+
 To develop a Spring Boot application that provides a RESTful API for managing Student records, including CRUD operations (Create and Read) for individual and bulk records.
 
 ## Tech Stack
-*   **Backend:** Spring Boot (Java 17)
-*   **Data Persistence:** Spring Data JPA
-*   **Database:** H2 / MySQL (In-memory/Local)
-*   **Build Tool:** Maven
-*   **API Testing:** Postman / Browser
+
+- **Backend:** Spring Boot (Java 17)
+- **Data Persistence:** Spring Data JPA
+- **Database:** H2 / MySQL (In-memory/Local)
+- **Build Tool:** Maven
+- **API Testing:** Postman / Browser
 
 ## Features
-*   Fetch all student records via `GET` request.
-*   Add a new student record via `POST` request.
-*   Bulk insert multiple student records via `POST` request.
+
+- Fetch all student records via `GET` request.
+- Add a new student record via `POST` request.
+- Bulk insert multiple student records via `POST` request.
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/students` | Get all students |
-| `POST` | `/api/student` | Add a single student |
+| Method | Endpoint        | Description                  |
+| :----- | :-------------- | :--------------------------- |
+| `GET`  | `/api/students` | Get all students             |
+| `POST` | `/api/student`  | Add a single student         |
 | `POST` | `/api/students` | Add multiple students (Bulk) |
 
 ### Sample JSON Request (Single Student)
+
 ```json
 {
   "name": "Shruti Mittal",
@@ -32,6 +36,7 @@ To develop a Spring Boot application that provides a RESTful API for managing St
 ```
 
 ### Sample JSON Request (Bulk Students)
+
 ```json
 [
   {
@@ -46,6 +51,7 @@ To develop a Spring Boot application that provides a RESTful API for managing St
 ```
 
 ## Project Structure
+
 ```text
 src/main/java/com/example/_AML3A
 ├── Application.java (Main Entry Point)
@@ -60,6 +66,7 @@ src/main/java/com/example/_AML3A
 ```
 
 ## How to Run
+
 1.  Clone the repository.
 2.  Import as a Maven project in IntelliJ or VS Code.
 3.  Run the `Application.java` file.
@@ -68,16 +75,21 @@ src/main/java/com/example/_AML3A
 ## Screenshots
 
 ### 1. Application Running & Adding Student
-![Application Start](./ss/Screenshot%202026-03-30%20at%201.51.20 PM.png)
+
+![Application Start](./ss/app-start.png)
 
 ### 2. Postman POST Request (Single)
-![Postman Request](./ss/Screenshot%202026-03-30%20at%201.51.32 PM.png)
+
+![Postman Request](./ss/postman-single.png)
 
 ### 3. GET Request (All Students)
-![GET All Students](./ss/Screenshot%202026-03-30%20at%201.52.09 PM.png)
+
+![GET All Students](./ss/get-all-students.png)
 
 ### 4. Database Verification / H2 Console
-![Database Results](./ss/Screenshot%202026-03-30%20at%201.53.33 PM.png)
+
+![Database Results](./ss/db-results.png)
 
 ### 5. Final Output
-![Final Output](./ss/Screenshot%202026-03-30%20at%201.56.10 PM.png)
+
+![Final Output](./ss/final-output.png)

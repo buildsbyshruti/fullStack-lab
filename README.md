@@ -1,95 +1,29 @@
-# JWT Authentication API (Spring Boot)
+# Full Stack Lab
 
-## 📌 Description
+This repository contains my Full Stack Lab experiments and mini-projects.
 
-This project implements user authentication using **JWT (JSON Web Token)** in Spring Boot.
-It allows users to log in and receive a secure token for authentication.
+## Folder Overview
 
----
+- `Exp - 1` to `Exp - 6`: React and frontend lab experiments
+- `Exp - 8`: Spring Boot REST API experiment
+- `EXP9`: JWT authentication experiment
+- `portfolio`: Personal portfolio project
 
-## ⚙️ Features
+## Screenshot Previews
 
-* User login authentication
-* JWT token generation
-* Stateless authentication
-* Spring Security integration
+### Portfolio
 
----
+![Home](./portfolio/screenshots/Home.png)
+![Dashboard](./portfolio/screenshots/dashboard.png)
+![Profile](./portfolio/screenshots/profile.png)
 
-## 🛠️ Technologies Used
+### Experiment 8 (Spring Boot API)
 
-* Java
-* Spring Boot
-* Spring Security
-* JWT (io.jsonwebtoken)
-* Maven
+![Application Start](./Exp%20-%208/ss/app-start.png)
+![Postman Request](./Exp%20-%208/ss/postman-single.png)
+![Final Output](./Exp%20-%208/ss/final-output.png)
 
----
+## Notes
 
-## 🚀 API Endpoints
-
-### 🔹 Login API
-
-```
-POST /api/login
-```
-
-#### Request (x-www-form-urlencoded)
-
-```
-username = admin
-password = admin
-```
-
-#### Response
-
-```
-JWT Token String
-```
-
----
-
-### 🔹 Test API
-
-```
-GET /api/hello
-```
-
-#### Response
-
-```
-Hello! JWT Authentication Successful
-```
-
----
-
-## 🧠 Working Flow
-
-1. Client sends login request
-2. Service validates credentials
-3. JWT token is generated
-4. Token is returned to client
-
----
-
-## ⚠️ Note
-
-* Currently uses **mock authentication (no database)**
-* Can be extended using JPA for database integration
-
----
-
-## ▶️ How to Run
-
-1. Open project in Eclipse or VSCode
-2. Run `JwtAuthApplication.java`
-3. Test APIs using Postman or browser
-
----
-
-## 🎓 Conclusion
-
-This project demonstrates secure authentication using JWT in a Spring Boot application.
-
-![WorkingScreenchot](get.png)
-![WorkingScreenchot](image.png)
+- Individual experiment details and full screenshot sets are available in each experiment's README.
+- Local dependency folders like `node_modules` are excluded from version control.
