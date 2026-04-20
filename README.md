@@ -4,18 +4,6 @@ LibreChat is a high-performance, professional real-time communication platform b
 
 ---
 
-## 📸 Preview
-
-<div align="center">
-  <img src="frontend/public/image1.png" width="400" alt="LibreChat Dashboard" />
-  <img src="frontend/public/image2.png" width="400" alt="Real-time Chat Interface" />
-  <br />
-  <img src="frontend/public/image3.png" width="400" alt="Voice Messaging Feature" />
-  <img src="frontend/public/image4.png" width="400" alt="Dark Mode Support" />
-</div>
-
----
-
 ## 🚀 Key Features
 
 *   **⚡ Real-Time Messaging**: Instant message delivery powered by STOMP over WebSockets.
@@ -36,6 +24,19 @@ LibreChat is a high-performance, professional real-time communication platform b
 | **Protocol** | STOMP + SockJS | Reliable messaging with WebSocket fallbacks |
 | **Styling** | Vanilla CSS | Bespoke, premium design with zero bloating |
 | **Logic** | JavaScript (ES6+) | Optimized frontend state management |
+
+---
+
+## 📸 Visual Walkthrough
+
+<p align="center">
+  <img src="frontend/public/image1.png" width="45%" alt="Join Screen" />
+  <img src="frontend/public/image2.png" width="45%" alt="Chat Interface" />
+</p>
+<p align="center">
+  <img src="frontend/public/image3.png" width="45%" alt="Dark Mode" />
+  <img src="frontend/public/image4.png" width="45%" alt="Mobile View" />
+</p>
 
 ---
 
